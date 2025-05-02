@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -42,11 +43,13 @@ export function SimpleProjectCard({
     <CardWrapper>
       <Card className="overflow-hidden transition-all duration-200 h-full hover:shadow-lg hover:scale-[1.02]">
         {imageSrc && (
-          <div className="w-full">
-            <img
+          <div className="w-full h-48 relative">
+            <Image
               src={imageSrc}
               alt={title}
-              className="w-full h-48 object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
             />
           </div>
         )}

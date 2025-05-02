@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "../components/ui/button";
 import { Header } from "../components/Header";
 import { SimpleProjectCard } from "../components/SimpleProjectCard";
 import { Banner } from "../components/Banner";
