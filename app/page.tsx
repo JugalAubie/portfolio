@@ -19,16 +19,15 @@ export default function Home() {
               title="RAG"
               description="Welcome to the Samsung Appliance Support Portal"
               content="Built a support portal for Samsung appliances"
-              buttonText="View Project"
               imageSrc="/assets/cardImg.png"
-              link="https://rag.aubergine.co/"
+              link="/projects/rag"
             />
 
             <SimpleProjectCard
-              title="Project 2"
+              title="Portfolio Website"
               description="Portfolio Website"
               content="Created a portfolio website using Next.js and shadcn UI components."
-              buttonText="View Project"
+              link="/projects/portfolio"
             />
           </div>
         </div>

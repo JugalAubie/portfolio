@@ -14,7 +14,7 @@ interface SimpleProjectCardProps {
   title: string;
   description: string;
   content: string;
-  buttonText: string;
+  buttonText?: string;
   onButtonClick?: () => void;
   imageSrc?: string;
   link?: string;
@@ -43,13 +43,14 @@ export function SimpleProjectCard({
     <CardWrapper>
       <Card className="overflow-hidden transition-all duration-200 h-full hover:shadow-lg hover:scale-[1.02]">
         {imageSrc && (
-          <div className="w-full h-48 relative">
+          <div className="aspect-video w-full relative">
             <Image
               src={imageSrc}
               alt={title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
+              priority
             />
           </div>
         )}
@@ -60,18 +61,20 @@ export function SimpleProjectCard({
         <CardContent>
           <p>{content}</p>
         </CardContent>
-        <CardFooter>
-          <Button
-            onClick={(e) => {
-              if (onButtonClick) {
-                e.preventDefault();
-                onButtonClick();
-              }
-            }}
-          >
-            {buttonText}
-          </Button>
-        </CardFooter>
+        {buttonText && (
+          <CardFooter>
+            <Button
+              onClick={(e) => {
+                if (onButtonClick) {
+                  e.preventDefault();
+                  onButtonClick();
+                }
+              }}
+            >
+              {buttonText}
+            </Button>
+          </CardFooter>
+        )}
       </Card>
     </CardWrapper>
   );
