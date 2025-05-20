@@ -6,7 +6,7 @@ interface ProjectPageProps {
   project: Project;
 }
 
-export function ProjectPage({ projectId, project }: ProjectPageProps) {
+export function ProjectPage({ project }: ProjectPageProps) {
   return (
     <ProjectDetail
       title={project.title}
