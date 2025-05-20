@@ -8,6 +8,15 @@ interface ProjectDetailProps {
   description: string;
   imageSrc?: string;
   link?: string;
+  techStack?: {
+    name: string;
+    description: string;
+  }[];
+  capabilities?: string[];
+  extendedApplications?: string[];
+  estimatedCosting?: string;
+  demoRecording?: string;
+  fullDescription?: string;
 }
 
 export function ProjectDetail({
@@ -15,6 +24,12 @@ export function ProjectDetail({
   description,
   imageSrc = "/assets/cardImg.png",
   link,
+  techStack = [],
+  capabilities = [],
+  extendedApplications = [],
+  estimatedCosting = "To be determined",
+  demoRecording,
+  fullDescription = "",
 }: ProjectDetailProps) {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-50">
@@ -86,10 +101,8 @@ export function ProjectDetail({
               {description}
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              This project showcases our expertise in creating innovative
-              solutions that address real-world challenges. The application
-              combines cutting-edge technology with intuitive user experience
-              design.
+              {fullDescription ||
+                "This project showcases our expertise in creating innovative solutions that address real-world challenges. The application combines cutting-edge technology with intuitive user experience design."}
             </p>
             {link && (
               <div className="hidden md:block">
@@ -132,253 +145,30 @@ export function ProjectDetail({
               Description
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed">
-              {title} is a comprehensive solution designed to streamline
-              processes and enhance user experience. It addresses key challenges
-              in the industry by implementing innovative approaches to data
-              management and user interaction. The platform offers intuitive
-              navigation, responsive design, and powerful functionality to meet
-              the diverse needs of its users.
+              {fullDescription ||
+                `${title} is a comprehensive solution designed to streamline processes and enhance user experience. It addresses key challenges in the industry by implementing innovative approaches to data management and user interaction. The platform offers intuitive navigation, responsive design, and powerful functionality to meet the diverse needs of its users.`}
             </p>
           </section>
 
           {/* Tech Stack */}
-          <section
-            id="tech-stack"
-            className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <span className="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
-                2
-              </span>
-              Tech Stack
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Frontend</h3>
-                    <p className="text-gray-600">
-                      React.js with Next.js framework
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">
-                      UI Components
-                    </h3>
-                    <p className="text-gray-600">
-                      Custom design system built with shadcn/ui
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Database</h3>
-                    <p className="text-gray-600">
-                      MongoDB for flexible data storage
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Backend</h3>
-                    <p className="text-gray-600">Node.js with Express</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">
-                      AI Integration
-                    </h3>
-                    <p className="text-gray-600">
-                      TensorFlow.js for machine learning capabilities
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="bg-blue-50 p-2 rounded-lg mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 text-blue-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Deployment</h3>
-                    <p className="text-gray-600">
-                      Vercel for frontend, AWS for backend services
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Capabilities */}
-          <section
-            id="capabilities"
-            className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <span className="bg-purple-100 text-purple-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
-                3
-              </span>
-              Capabilities
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                "Advanced search functionality with natural language processing",
-                "Real-time data synchronization across devices",
-                "Personalized user experiences based on behavior analysis",
-                "Automated reporting and analytics dashboard",
-                "Integration with third-party services and APIs",
-                "Mobile-responsive design for cross-platform accessibility",
-                "Security features including encryption and role-based access control",
-              ].map((capability, index) => (
-                <div
-                  key={index}
-                  className="flex items-center p-3 bg-purple-50 rounded-lg"
-                >
-                  <svg
-                    className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <span className="text-gray-700">{capability}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Other Applications */}
-          <section
-            id="other-applications"
-            className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-              <span className="bg-green-100 text-green-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
-                4
-              </span>
-              Other Applications
-            </h2>
-            <p className="text-gray-700 mb-6">
-              The technology and approach used in this project can be adapted
-              for various other applications:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                "Enterprise knowledge management systems",
-                "Customer support and service platforms",
-                "Educational and e-learning environments",
-                "Healthcare information systems",
-                "Financial services and fintech solutions",
-                "E-commerce and retail management",
-              ].map((app, index) => (
-                <div key={index} className="bg-green-50 p-4 rounded-xl">
-                  <div className="flex items-center">
-                    <div className="bg-green-200 rounded-full p-2 mr-3">
+          {techStack.length > 0 && (
+            <section
+              id="tech-stack"
+              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <span className="bg-blue-100 text-blue-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
+                  2
+                </span>
+                Tech Stack
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {techStack.map((tech, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="bg-blue-50 p-2 rounded-lg mr-4">
                       <svg
-                        className="h-4 w-4 text-green-700"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-blue-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -387,16 +177,102 @@ export function ProjectDetail({
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
                     </div>
-                    <span className="text-gray-700 font-medium">{app}</span>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">
+                        {tech.name}
+                      </h3>
+                      <p className="text-gray-600">{tech.description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Capabilities */}
+          {capabilities.length > 0 && (
+            <section
+              id="capabilities"
+              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <span className="bg-purple-100 text-purple-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
+                  3
+                </span>
+                Capabilities
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {capabilities.map((capability, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center p-3 bg-purple-50 rounded-lg"
+                  >
+                    <svg
+                      className="h-6 w-6 text-purple-600 mr-3 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span className="text-gray-700">{capability}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Other Applications */}
+          {extendedApplications.length > 0 && (
+            <section
+              id="other-applications"
+              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <span className="bg-green-100 text-green-800 rounded-full w-10 h-10 flex items-center justify-center mr-3 font-mono">
+                  4
+                </span>
+                Other Applications
+              </h2>
+              <p className="text-gray-700 mb-6">
+                The technology and approach used in this project can be adapted
+                for various other applications:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {extendedApplications.map((app, index) => (
+                  <div key={index} className="bg-green-50 p-4 rounded-xl">
+                    <div className="flex items-center">
+                      <div className="bg-green-200 rounded-full p-2 mr-3">
+                        <svg
+                          className="h-4 w-4 text-green-700"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 10V3L4 14h7v7l9-11h-7z"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 font-medium">{app}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Estimated Costings */}
           <section
@@ -409,67 +285,9 @@ export function ProjectDetail({
               </span>
               Estimated Costings
             </h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200 rounded-xl overflow-hidden">
-                <thead>
-                  <tr className="bg-gradient-to-r from-amber-50 to-amber-100">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-800 uppercase tracking-wider">
-                      Component
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-800 uppercase tracking-wider">
-                      Development Hours
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-800 uppercase tracking-wider">
-                      Estimated Cost
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {[
-                    ["Research & Planning", "40-60 hours", "$4,000-$6,000"],
-                    ["UX/UI Design", "80-120 hours", "$8,000-$12,000"],
-                    [
-                      "Frontend Development",
-                      "160-200 hours",
-                      "$16,000-$20,000",
-                    ],
-                    ["Backend Development", "120-180 hours", "$12,000-$18,000"],
-                    ["Testing & QA", "60-80 hours", "$6,000-$8,000"],
-                    ["Deployment & DevOps", "40-60 hours", "$4,000-$6,000"],
-                  ].map((row, index) => (
-                    <tr
-                      key={index}
-                      className={index % 2 === 0 ? "bg-white" : "bg-amber-50"}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-800">
-                        {row[0]}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-600">
-                        {row[1]}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-gray-600">
-                        {row[2]}
-                      </td>
-                    </tr>
-                  ))}
-                  <tr className="bg-gradient-to-r from-amber-100 to-amber-200">
-                    <td className="px-6 py-4 whitespace-nowrap font-bold text-amber-800">
-                      Total
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap font-bold text-amber-800">
-                      500-700 hours
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap font-bold text-amber-800">
-                      $50,000-$70,000
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="p-6 bg-amber-50 rounded-xl">
+              <p className="text-gray-700 text-lg">{estimatedCosting}</p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">
-              *Costs are approximate and may vary based on specific
-              requirements, team composition, and market rates.
-            </p>
           </section>
 
           {/* Recording */}
@@ -514,14 +332,34 @@ export function ProjectDetail({
                   </div>
                 </div>
                 <div className="w-full md:w-2/3">
-                  <p className="text-gray-300 mb-6 text-lg">
-                    A demonstration video of the project is available upon
-                    request. Please contact our team to schedule a personalized
-                    walkthrough.
-                  </p>
-                  <Button className="bg-white hover:bg-gray-100 text-gray-900 rounded-full px-6 py-2 font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
-                    Request Demo Recording
-                  </Button>
+                  {demoRecording === "Pending" ? (
+                    <p className="text-gray-300 mb-6 text-lg">
+                      A demonstration video of this project is coming soon.
+                      Please check back later or contact our team for more
+                      information.
+                    </p>
+                  ) : demoRecording ? (
+                    <p className="text-gray-300 mb-6 text-lg">
+                      Watch our demonstration video to see the {title} in
+                      action.
+                    </p>
+                  ) : (
+                    <p className="text-gray-300 mb-6 text-lg">
+                      A demonstration video of the project is available upon
+                      request. Please contact our team to schedule a
+                      personalized walkthrough.
+                    </p>
+                  )}
+
+                  {demoRecording && demoRecording !== "Pending" ? (
+                    <Button className="bg-white hover:bg-gray-100 text-gray-900 rounded-full px-6 py-2 font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                      Watch Demo
+                    </Button>
+                  ) : (
+                    <Button className="bg-white hover:bg-gray-100 text-gray-900 rounded-full px-6 py-2 font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                      Request Demo Recording
+                    </Button>
+                  )}
                 </div>
               </div>
             </div>

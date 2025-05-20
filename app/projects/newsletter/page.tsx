@@ -3,6 +3,6 @@
 import { ProjectPage } from "../../../components/ProjectPage";
 import { projects } from "../../data/projects";
 
-export default function RAGProject() {
-  return <ProjectPage projectId="rag" project={projects.rag} />;
+export default function NewsletterProject() {
+  return <ProjectPage projectId="newsletter" project={projects.newsletter} />;
 }

@@ -24,10 +24,27 @@ export default function Home() {
             />
 
             <SimpleProjectCard
-              title="Portfolio Website"
-              description="Portfolio Website"
-              content="Created a portfolio website using Next.js and shadcn UI components."
-              link="/projects/portfolio"
+              title="Product Booster AI Agent"
+              description="AI-powered competitive intelligence for product teams"
+              content="Provides real-time competitive intelligence and actionable recommendations to accelerate growth"
+              imageSrc="/assets/cardImg.png"
+              link="/projects/product-booster"
+            />
+
+            <SimpleProjectCard
+              title="Newsletter Generation AI Agent"
+              description="Automates creation and delivery of customized newsletters"
+              content="Searches the web, scrapes relevant content, and generates concise summaries for newsletters"
+              imageSrc="/assets/cardImg.png"
+              link="/projects/newsletter"
+            />
+
+            <SimpleProjectCard
+              title="Voice AI Agent for Exit Interviews"
+              description="Conducts real-time, voice-based exit interviews"
+              content="Engages in natural conversations with departing employees using AI-powered speech capabilities"
+              imageSrc="/assets/cardImg.png"
+              link="/projects/exit-interview"
             />
           </div>
         </div>
