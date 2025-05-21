@@ -305,34 +305,53 @@ export function ProjectDetail({
               </h2>
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="bg-gray-700/50 backdrop-blur-sm rounded-xl p-6 flex items-center justify-center w-full md:w-1/3">
-                  <div className="relative group">
-                    <div className="w-24 h-24 rounded-full bg-indigo-600/20 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 group-hover:scale-110">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        className="h-10 w-10 text-white"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
+                  <div className="relative group w-full">
+                    {/* Embed Google Drive video if present */}
+                    {demoRecording &&
+                    demoRecording.includes("drive.google.com") ? (
+                      <iframe
+                        src={demoRecording.replace("/view", "/preview")}
+                        width="320"
+                        height="180"
+                        allow="autoplay"
+                        className="rounded-lg w-full h-48 md:h-56"
+                        title="Demo Recording"
+                      />
+                    ) : (
+                      <div className="w-24 h-24 rounded-full bg-indigo-600/20 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-all duration-300 group-hover:scale-110">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          className="h-10 w-10 text-white"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                    )}
                     <div className="absolute -inset-1 bg-indigo-600/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
                 <div className="w-full md:w-2/3">
-                  {demoRecording === "Pending" ? (
+                  {demoRecording &&
+                  demoRecording.includes("drive.google.com") ? (
+                    <p className="text-gray-300 mb-6 text-lg">
+                      Watch our demonstration video to see the {title} in
+                      action.
+                    </p>
+                  ) : demoRecording === "Pending" ? (
                     <p className="text-gray-300 mb-6 text-lg">
                       A demonstration video of this project is coming soon.
                       Please check back later or contact our team for more
@@ -351,7 +370,10 @@ export function ProjectDetail({
                     </p>
                   )}
 
-                  {demoRecording && demoRecording !== "Pending" ? (
+                  {demoRecording &&
+                  demoRecording.includes(
+                    "drive.google.com"
+                  ) ? null : demoRecording && demoRecording !== "Pending" ? (
                     <Button className="bg-white hover:bg-gray-100 text-gray-900 rounded-full px-6 py-2 font-medium transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                       Watch Demo
                     </Button>

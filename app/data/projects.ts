@@ -181,7 +181,8 @@ export const projects: Record<string, Project> = {
       "Grant and Funding Opportunity Finder – Monitoring for new grants or funding programs",
     ],
     estimatedCosting: "To be determined",
-    demoRecording: "Pending",
+    demoRecording:
+      "https://drive.google.com/file/d/1XMqmBUo13eBDVssiBIWXsOPFis89hY98/view",
     websiteLink: "https://newsletter.aubergine.co/",
   },
   "exit-interview": {
