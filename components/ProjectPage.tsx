@@ -2,16 +2,22 @@ import { Project } from "../app/data/projects";
 import { ProjectDetail } from "./ProjectDetail";
 
 interface ProjectPageProps {
-  projectId: string;
   project: Project;
 }
+
+const imageMap: Record<string, string> = {
+  "product-booster": "/assets/ProductBooster.png",
+  newsletter: "/assets/AubNewslatter.png",
+  "exit-interview": "/assets/ExitInterviewBoat.png",
+  rag: "/assets/cardImg.png",
+};
 
 export function ProjectPage({ project }: ProjectPageProps) {
   return (
     <ProjectDetail
       title={project.title}
       description={project.subtitle}
-      imageSrc="/assets/cardImg.png"
+      imageSrc={imageMap[project.id] || "/assets/cardImg.png"}
       link={project.websiteLink}
       techStack={project.techStack}
       capabilities={project.capabilities}

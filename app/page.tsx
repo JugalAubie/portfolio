@@ -27,7 +27,7 @@ export default function Home() {
               title="Product Booster AI Agent"
               description="AI-powered competitive intelligence for product teams"
               content="Provides real-time competitive intelligence and actionable recommendations to accelerate growth"
-              imageSrc="/assets/cardImg.png"
+              imageSrc="/assets/ProductBooster.png"
               link="/projects/product-booster"
             />
 
@@ -35,7 +35,7 @@ export default function Home() {
               title="Newsletter Generation AI Agent"
               description="Automates creation and delivery of customized newsletters"
               content="Searches the web, scrapes relevant content, and generates concise summaries for newsletters"
-              imageSrc="/assets/cardImg.png"
+              imageSrc="/assets/AubNewslatter.png"
               link="/projects/newsletter"
             />
 
@@ -43,7 +43,7 @@ export default function Home() {
               title="Voice AI Agent for Exit Interviews"
               description="Conducts real-time, voice-based exit interviews"
               content="Engages in natural conversations with departing employees using AI-powered speech capabilities"
-              imageSrc="/assets/cardImg.png"
+              imageSrc="/assets/ExitInterviewBoat.png"
               link="/projects/exit-interview"
             />
           </div>
