@@ -7,7 +7,7 @@ interface ProjectPageProps {
 
 const imageMap: Record<string, string> = {
   "product-booster": "/assets/ProductBooster.png",
-  newsletter: "/assets/AubNewslatter.png",
+  newsletter: "/assets/AubNewsLatter.png",
   "exit-interview": "/assets/ExitInterviewBoat.png",
   rag: "/assets/cardImg.png",
 };
